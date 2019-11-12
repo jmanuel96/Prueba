@@ -1,14 +1,44 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Pizzeria Becoven
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-item>
+    <ion-label>Título</ion-label>
+    <ion-input [(ngModel)]="becovenEditando.titulo"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Descripción</ion-label>
+    <ion-input [(ngModel)]="becovenEditando.descripcion"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Precio</ion-label>
+    <ion-input [(ngModel)]="becovenEditando.precio"></ion-input>
+  </ion-item>
+  <ion-button (click)="clicBotonInsertar()">Añadir Producto</ion-button>
+  <ion-button (click)="clicBotonBorrar()">Borrar Producto</ion-button>
+  <ion-button (click)="clicBotonModificar()">Modificar Producto</ion-button>
+
+
+<h1>LISTA DE PRODUCTOS</h1>
+<ion-list>
+  <ion-item *ngFor="let documentBecoven of arrayColeccionBecoven" (click)="selecBecoven(documentBecoven)">
+    <ion-grid>
+      <ion-row>
+        <h2>Titulo: {{documentBecoven.data.titulo}}</h2>
+      </ion-row>
+      <ion-row>
+        <p>Descripción:{{documentBecoven.data.descripcion}}</p>
+      </ion-row>
+      <ion-row>
+        <p>Precio:{{documentBecoven.data.precio}}</p>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+
+</ion-list>
 </ion-content>
