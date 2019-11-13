@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { FirestoreService } from '../firestore.service';
 import { Becoven } from '../becoven';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,7 @@ export class HomePage {
     data: {} as Becoven
    }];
 
-  constructor(private firestoreService: FirestoreService) {
+  constructor(private firestoreService: FirestoreService,private router: Router) {
     // Crear un becoven vacío
     this.becovenEditando = {} as Becoven;
     this.obtenerListaBecoven();
@@ -70,6 +71,10 @@ export class HomePage {
       // Limpiar datos de pantalla
       this.becovenEditando = {} as Becoven;
     })
+  }
+
+  navigateToProducto() {
+    this.router.navigate(["/producto"]);
   }
 
 }
