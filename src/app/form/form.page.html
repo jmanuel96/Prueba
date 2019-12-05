@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>form</ion-title>
+    <ion-title>
+      Formulario
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-item>
+    <ion-label>Título:</ion-label>
+    <ion-input [(ngModel)]="document.data.titulo"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Descripción:</ion-label>
+    <ion-input [(ngModel)]="document.data.descripcion"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Precio:</ion-label>
+    <ion-input [(ngModel)]="document.data.precio"></ion-input>
+    <ion-input></ion-input>
+  </ion-item>
+  <div *ngIf="nuevo == false">
+    <ion-button (click)="clicBotonBorrar()">Borrar</ion-button>
+    <ion-button (click)="clicBotonModificar()">Modificar</ion-button>
+    <ion-button  (click)="navigateToHome('home')">Cancelar</ion-button>
+  </div>
+  <div *ngIf="nuevo == true">
+    <ion-button (click)="clicBotonInsertar()">Guardar</ion-button>
+    <!-- <ion-button  (click)="navigateToHome('home')">Cancelar</ion-button> -->
+  </div>
 </ion-content>

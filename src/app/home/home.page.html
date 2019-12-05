@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
+  <!-- <ion-item>
     <ion-label>Título</ion-label>
     <ion-input [(ngModel)]="becovenEditando.titulo"></ion-input>
   </ion-item>
@@ -21,15 +21,13 @@
   </ion-item>
   <ion-button (click)="clicBotonInsertar()">Añadir Productos</ion-button>
   <ion-button (click)="clicBotonBorrar()">Borrar Productos</ion-button>
-  <ion-button (click)="clicBotonModificar()">Modificar Productos</ion-button>
+  <ion-button (click)="clicBotonModificar()">Modificar Productos</ion-button> -->
 
 
 <h1>LISTA DE PRODUCTOS</h1>
 <ion-list>
-  <ion-item *ngFor="let documentBecoven of arrayColeccionBecoven" (click)="selecBecoven(documentBecoven)">
+  <ion-item *ngFor="let documentBecoven of arrayColeccionBecoven" (click)="navigateToProducto(documentBecoven)">
       <div class="ion-padding">
-        <ion-button color="primary" expand="full" (click)="navigateToProducto()"
-          >Button</ion-button>  
       <ion-grid>
         <ion-row>
           <h2>Titulo: {{documentBecoven.data.titulo}}</h2>
@@ -43,6 +41,9 @@
       </ion-grid>
       </div>
   </ion-item>
-
 </ion-list>
+
+<ion-fab-button (click)="insertarProductoNuevo('nuevo')">
+  <ion-icon name="add-circle"></ion-icon>
+</ion-fab-button>
 </ion-content>

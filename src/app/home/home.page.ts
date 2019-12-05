@@ -17,12 +17,14 @@ export class HomePage {
     id: "",
     data: {} as Becoven
    }];
+   idBecovenSelect: string;
 
   constructor(private firestoreService: FirestoreService,private router: Router) {
     // Crear un becoven vacío
     this.becovenEditando = {} as Becoven;
     this.obtenerListaBecoven();
   }
+
 
   clicBotonInsertar() {
     this.firestoreService.insertar("productos", this.becovenEditando).then(() => {
@@ -73,8 +75,15 @@ export class HomePage {
     })
   }
 
-  navigateToProducto() {
-    this.router.navigate(["/producto"]);
+  navigateToProducto(becovenSelec) {
+    // this.router.navigate(["/producto" + this.idBecovenSelec]);
+    this.router.navigate(["/form/" + becovenSelec.id]);
+    //
   }
+
+  insertarProductoNuevo(nuevo){
+    this.router.navigate(["/form/" + nuevo]);
+  }
+  
 
 }

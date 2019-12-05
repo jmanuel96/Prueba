@@ -1,5 +1,7 @@
 {
   "name": "BBDD-firestore",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
